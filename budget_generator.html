@@ -1,0 +1,75 @@
+<!-- templates/budget_generator.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Budget Trip Planner</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Budget Trip Generator</h1>
+  </header>
+
+  <main>
+    <form id="budgetForm">
+      <label>Enter your total budget (NPR):</label>
+      <input type="number" id="budget" required>
+      <button type="submit">Generate Plan</button>
+    </form>
+
+    <div id="planResults" style="display: none;">
+      <h2>Your Budget-Friendly Plan:</h2>
+      <ul id="planList"></ul>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById("budgetForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const budget = parseInt(document.getElementById("budget").value);
+      const planList = document.getElementById("planList");
+      planList.innerHTML = "";
+
+      let plan = [];
+
+      if (budget < 5000) {
+        plan = [
+          "Visit nearby city (e.g., Bhaktapur, Patan)",
+          "Use public transport or walk",
+          "Stay in local homestays (~Rs. 800/day)",
+          "Simple local food (~Rs. 300/day)",
+          "Free cultural sites or parks",
+          "No guide recommended"
+        ];
+      } else if (budget <= 15000) {
+        plan = [
+          "Pokhara or Chitwan trip (2-3 days)",
+          "Shared vehicle or night bus",
+          "Budget hotel or hostel (~Rs. 1200/day)",
+          "Tour guide (~Rs. 1000/day)",
+          "Activities: Boating, Jungle walk",
+          "Meals: Dal-Bhat + snacks (~Rs. 500/day)"
+        ];
+      } else {
+        plan = [
+          "Kathmandu > Pokhara > Lumbini (5-7 days)",
+          "Tour package with guide",
+          "Good hotels (~Rs. 2000/day)",
+          "Private transport or flights",
+          "Paragliding, Zipline, Safari",
+          "Meals at nice restaurants (~Rs. 800/day)"
+        ];
+      }
+
+      plan.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        planList.appendChild(li);
+      });
+
+      document.getElementById("planResults").style.display = "block";
+    });
+  </script>
+</body>
+</html>

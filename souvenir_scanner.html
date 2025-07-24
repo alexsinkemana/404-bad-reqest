@@ -1,0 +1,27 @@
+<!-- templates/souvenir_scanner.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Souvenir Scanner</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Scan Nepali Souvenirs</h1>
+  </header>
+
+  <main>
+    <p>This is a prototype demo. Click below to scan an item.</p>
+    <button onclick="scanSouvenir()">📸 Scan Item</button>
+    <p id="souvenirResult"></p>
+  </main>
+
+  <script>
+    function scanSouvenir() {
+      document.getElementById("souvenirResult").innerText =
+        "🧣 This is a handwoven Dhaka scarf from Palpa. Avg price: Rs. 500 – Authentic product.";
+    }
+  </script>
+</body>
+</html>
