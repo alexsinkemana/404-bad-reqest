@@ -1,0 +1,95 @@
+<!-- dashboardAdmin.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Dashboard - Travel Buddy</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f7971e, #ffd200);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #333;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    .panel {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 15px 0;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    }
+
+    button {
+      background: #f7971e;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #fbb034;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🛠️ Admin Dashboard - Travel Buddy</h1>
+  </header>
+
+  <main>
+    <div class="panel">
+      <h2>👥 Manage Users & Staff</h2>
+      <p>View or remove registered tourists and staff from the system.</p>
+      <button onclick="showData()">Show All Accounts</button>
+      <div id="accountList"></div>
+    </div>
+
+    <div class="panel">
+      <h2>📊 Analytics</h2>
+      <p>Tourist interest trends, festival bookings, and more coming soon...</p>
+    </div>
+
+    <div class="panel">
+      <h2>🧠 AI Feedback Monitor</h2>
+      <p>Coming soon: Monitor user chatbot feedback & trends!</p>
+    </div>
+  </main>
+
+  <script>
+    function showData() {
+      const container = document.getElementById("accountList");
+      container.innerHTML = "";
+
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        const val = JSON.parse(localStorage.getItem(key));
+        if (val && val.email && val.password) {
+          const div = document.createElement("div");
+          div.textContent = `Email: ${val.email} | Role: ${val.role || "user"}`;
+          container.appendChild(div);
+        }
+      }
+    }
+  </script>
+</body>
+</html>

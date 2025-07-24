@@ -1,0 +1,67 @@
+<!-- loginStaff.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Staff Login - Travel Buddy</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .login-container {
+      max-width: 400px;
+      margin: 80px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    }
+
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #36d1dc;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #5b86e5;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>🧑‍💼 Staff Login</h2>
+    <input type="text" id="staffEmail" placeholder="Email" />
+    <input type="password" id="staffPassword" placeholder="Password" />
+    <button onclick="staffLogin()">Login</button>
+  </div>
+
+  <script>
+    function staffLogin() {
+      const email = document.getElementById("staffEmail").value;
+      const password = document.getElementById("staffPassword").value;
+
+      const staffData = JSON.parse(localStorage.getItem(email));
+      if (staffData && staffData.role === "staff" && staffData.password === password) {
+        localStorage.setItem("currentStaff", email);
+        alert("Login successful!");
+        window.location.href = "dashboardStaff.html";
+      } else {
+        alert("Invalid credentials or not a staff account.");
+      }
+    }
+  </script>
+</body>
+</html>

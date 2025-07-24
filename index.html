@@ -1,34 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Travel Buddy | Nepal Tourism</title>
-  <link rel="stylesheet" href="/static/css/style.css">
+  <meta charset="UTF-8" />
+  <title>Travel Buddy Dashboard</title>
+  <link rel="stylesheet" href="css/index.css" />
 </head>
 <body>
-  <header>
-    <h1>Travel Buddy 🏔️</h1>
-    <p>Explore Nepal like never before. Plan, travel, and save with your perfect companion!</p>
-    <a href="/login">Login / Register</a>
+  <nav class="main-nav">
+    <ul>
+      <li><a href="logout.html" onclick="logout()">🚪 Login Page</a></li>
+    </ul>
+  </nav>
+
+  <header class="dashboard-header">
+    <h1>Welcome to Travel Buddy Dashboard</h1>
+    <p>Your smart partner for exploring Nepal!</p>
   </header>
 
-  <section>
-    <h2>Key Features</h2>
-    <ul>
-      <li>🎉 Festival-Based Trip Planner</li>
-      <li>🧑‍🤝‍🧑 Group Trip Matching</li>
-      <li>☁️ Weather + Crowd Forecast</li>
-      <li>💸 Budget Trip Generator</li>
-      <li>🏆 Travel Gamification & Rewards</li>
-      <li>🔇 Offline Travel Emergency Kit</li>
-      <li>🙏 Cultural Tips & Traditions</li>
-      <li>📍 Hidden Gems Recommendation</li>
-      <li>🗣️ Voice Travel Guide</li>
-      <li>🧑‍🍳 Local Experience Marketplace</li>
-      <li>🌱 Eco-Friendly Carbon Tracker</li>
-      <li>📸 Souvenir Scanner</li>
-      <li>🤖 AI Travel Chatbot</li>
-    </ul>
-  </section>
+  <main class="dashboard-main">
+    <section class="cards">
+      <div class="card">
+        <h3>📅 Festival Planner</h3>
+        <p>Discover festivals and cultural events happening across Nepal.</p>
+        <a href="festivalPlanner.html" class="card-btn">Explore</a>
+      </div>
+      <div class="card">
+        <h3>💰 Budget Trip Planner</h3>
+        <p>Plan your trip based on your budget and preferences.</p>
+        <a href="html/budgetForm.html" class="card-btn">Plan Now</a>
+      </div>
+      <div class="card">
+        <h3>💬 Live Chat Support</h3>
+        <p>Get real-time assistance from local guides and travel experts.</p>
+        <a href="chatSupport.html" class="card-btn">Chat Now</a>
+      </div>
+      <div class="card">
+        <h3>📝 Feedback</h3>
+        <p>Help us improve by submitting your feedback and suggestions.</p>
+        <a href="feedbackForm.html" class="card-btn">Give Feedback</a>
+      </div>
+    </section>
+
+    <section class="info-section">
+      <h2>Why Choose Travel Buddy?</h2>
+      <ul>
+        <li>📅 Festival Planner & Budget Trips</li>
+        <li>🧭 Hidden Gems & Cultural Tips</li>
+        <li>🎤 Voice Travel Guide & AI Chatbot</li>
+        <li>💬 Local Staff Help & Homestays</li>
+        <li>🏆 Earn Points to Win Free Homestay</li>
+        <li>🗺️ Real-time Map & Weather Info</li>
+        <li>🛡️ Secure User Auth (LocalStorage)</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made with ❤️ for Nepal Tourism Hackathon</p>
+  </footer>
+
+  <script>
+    function logout() {
+      localStorage.removeItem('currentUser');
+      localStorage.removeItem('currentStaff');
+      localStorage.removeItem('currentAdmin');
+      alert('You have logged out.');
+      window.location.href = 'index.html';
+    }
+  </script>
 </body>
 </html>
